@@ -3,11 +3,11 @@
 Tcpdump command is a famous network packet analyzing tool that is used to display TCP\IP & other network packets being transmitted over the network attached to the system on which tcpdump has been installed. Tcpdump uses libpcap library to capture the network packets & is available on almost all Linux/Unix flavors.
 
 
-[Capture ICMP Packets With Tcpdump](https://www.howtouselinux.com/post/capture-icmp-packets-with-tcpdump)
+[Capture ICMP Packets With Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-icmpv6-packets)
 
 [Debugging SSH Packets with Tcpdump](https://www.howtouselinux.com/post/debugging-ssh-packets-with-tcpdump)
 
-[Using Tcpdump to Filter DNS Packets](https://www.howtouselinux.com/post/using-tcpdump-to-filter-dns-packets-on-linux)
+[Using Tcpdump to Filter DNS Packets](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
 
 [Learn tcpdump Quick Guide](https://www.howtouselinux.com/post/learn-tcpdump-quick-guide)
 
