@@ -21,15 +21,13 @@ Tcpdump command is a famous network packet analyzing tool that is used to displa
 
 
 
-# [TCPDUMP]
+# TCPDUMP
 
 
 ## README
 
 Tcpdump is one of the best network analysis-tools ever for information security professionals. 
 Tcpdump is for everyone for hackers and people who have less of TCP/IP understanding. 
-
-Many prefer to use higher-level analysis tools such Wireshark, _but I believe it is a mistake_. 
 
 ## OPTIONS
 
