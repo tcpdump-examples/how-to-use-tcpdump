@@ -96,13 +96,14 @@ Tcpdump is for everyone for hackers and people who have less of TCP/IP understan
 ### For more options, read manual:
 
 * Find all options [here](https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples)
-[Linux Tcpdump: Filter ipv6 ntp ping packets](https://www.howtouselinux.com/post/linux-tcpdump-filter-ipv6-ntp-ping-packets)
 
-[Tcpdump: capture DHCP & DHCPv6 packets](https://www.howtouselinux.com/post/tcpdump-capture-dhcp-dhcpv6-packets)
+* [Linux Tcpdump: Filter ipv6 ntp ping packets](https://www.howtouselinux.com/post/linux-tcpdump-filter-ipv6-ntp-ping-packets)
 
-[20 Advanced Tcpdump Examples On Linux](https://www.howtouselinux.com/post/20-tcpdump-advanced-examples-on-linux)
+* [Tcpdump: capture DHCP & DHCPv6 packets](https://www.howtouselinux.com/post/tcpdump-capture-dhcp-dhcpv6-packets)
 
-[10 Useful tcpdump command examples](https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples)
+* [20 Advanced Tcpdump Examples On Linux](https://www.howtouselinux.com/post/20-tcpdump-advanced-examples-on-linux)
+
+* [10 Useful tcpdump command examples](https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples)
 
 
 # BASIC USAGE
