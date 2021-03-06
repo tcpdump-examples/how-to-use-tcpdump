@@ -15,6 +15,17 @@ Tcpdump command is a famous network packet analyzing tool that is used to displa
 
 [10 Useful tcpdump command examples](https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples)
 
+[Filtering ICMP ICMPv6 Packets with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-icmpv6-packets)
+
+[Tcpdump: Filter Packets with Tcp Flags](https://www.howtouselinux.com/post/tcpdump-capture-packets-with-tcp-flags)
+
+[Tcpdump Cheat Sheet (Basic Advanced Examples)](https://www.howtouselinux.com/post/tcpdump-cheat-sheet)
+
+[Filtering SSH Packets with Tcpdump](https://www.howtouselinux.com/post/debugging-ssh-packets-with-tcpdump)
+
+[Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
+
+[Filtering CDP LLDP packets with Tcpdump](https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux)
 
 tcpdump
 =======
