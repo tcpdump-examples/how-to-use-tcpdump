@@ -4,24 +4,24 @@ Understanding nfsiostat command output
 
 The following is the output of nfsiostat.  We can get the NFS performance metrics here like NFS IOPS, bandwidth, latency.
 
-op/s
+* op/s
 This is the number of operations per second.
 
-rpc bklog
+* rpc bklog
 This is the length of the backlog queue.
 
-kB/s
+* kB/s
 This is the number of kB written/read per second.
 
-kB/op
+* kB/op
 This is the number of kB written/read per each operation.
 
-retrans
+* retrans
 This is the number of retransmissions.
 
-avg RTT (ms)
+* avg RTT (ms)
 This is the duration from the time that client's kernel sends the RPC request until the time it receives the reply.
 
-avg exe (ms)
+* avg exe (ms)
 This is the duration from the time that NFS client does the RPC request to its kernel until the RPC request is completed, this includes the RTT time above.
 
