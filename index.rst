@@ -14,3 +14,10 @@ Tcpdump command is a famous network packet analyzing tool that is used to displa
 [20 Advanced Tcpdump Examples On Linux](https://www.howtouselinux.com/post/20-tcpdump-advanced-examples-on-linux)
 
 [10 Useful tcpdump command examples](https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples)
+
+Nfsiostat
+===========================
+  :doc:`nfsiostat </nfsiostat>` 
+
+Linux command nfsiostat can be used to determine the average Round Trip Time (avg RTT) in milliseconds which is a good measurement for storage performance issue. The nfsiostat command is available in later versions of the nfs-utils package.
+
