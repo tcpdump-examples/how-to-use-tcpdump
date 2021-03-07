@@ -7,25 +7,13 @@ how-to-use-tcpdump
 Tcpdump command is a famous network packet analyzing tool that is used to display TCP\IP & other network packets being transmitted over the network attached to the system on which tcpdump has been installed. Tcpdump uses libpcap library to capture the network packets & is available on almost all Linux/Unix flavors.
 
 
-[Linux Tcpdump: Filter ipv6 ntp ping packets](https://www.howtouselinux.com/post/linux-tcpdump-filter-ipv6-ntp-ping-packets>)
-
-[Tcpdump: capture DHCP & DHCPv6 packets](https://www.howtouselinux.com/post/tcpdump-capture-dhcp-dhcpv6-packets)
-
 [20 Advanced Tcpdump Examples On Linux](https://www.howtouselinux.com/post/20-tcpdump-advanced-examples-on-linux)
 
 [10 Useful tcpdump command examples](https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples)
 
-[Filtering ICMP ICMPv6 Packets with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-icmpv6-packets)
-
-[Tcpdump: Filter Packets with Tcp Flags](https://www.howtouselinux.com/post/tcpdump-capture-packets-with-tcp-flags)
-
 [Tcpdump Cheat Sheet (Basic Advanced Examples)](https://www.howtouselinux.com/post/tcpdump-cheat-sheet)
 
-[Filtering SSH Packets with Tcpdump](https://www.howtouselinux.com/post/debugging-ssh-packets-with-tcpdump)
 
-[Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
-
-[Filtering CDP LLDP packets with Tcpdump](https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux)
 
 tcpdump
 =======
@@ -59,6 +47,8 @@ Examples
 Capturing ARP Traffic
 ^^^^^^^^^^^^^^^^^^^^^
 
+[Linux Tcpdump: Filter ipv6 ntp ping packets](https://www.howtouselinux.com/post/linux-tcpdump-filter-ipv6-ntp-ping-packets>)
+
 When using tcpdump to capture ARP, make sure to dump the hex output (*-X*)
 and also decode ethernet header using (*-e*). **Note: Use *-XX* to also
 show ethernet header dump**.
@@ -77,6 +67,8 @@ show ethernet header dump**.
 
 Capturing Traffic on Localhost
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Filtering ICMP ICMPv6 Packets with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-icmpv6-packets)
 
 During development, there is usually a local webserver setup in
 `http://localhost`. Custom apps/scripts are tested against this local
@@ -129,6 +121,8 @@ Capturing TCP SYN Packets
 
 To capture SYN packets only:
 
+[Tcpdump: Filter Packets with Tcp Flags](https://www.howtouselinux.com/post/tcpdump-capture-packets-with-tcp-flags)
+
 .. code-block:: sh
 
     $ sudo tcpdump -nnvvv host 192.168.1.116 and "tcp[tcpflags] & tcp-syn != 0"
@@ -143,12 +137,16 @@ keepalive probe is a packet with no data and ACK flag turned on:
 Capture Outgoing SSH Traffic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+[Filtering SSH Packets with Tcpdump](https://www.howtouselinux.com/post/debugging-ssh-packets-with-tcpdump)
+
 .. code-block:: sh
 
     $ sudo tcpdump -nn src 192.168.1.116 and tcp port 22
 
 Get Time Delta Between Request/Response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Tcpdump: capture DHCP & DHCPv6 packets](https://www.howtouselinux.com/post/tcpdump-capture-dhcp-dhcpv6-packets)
 
 Pass the *-ttt* flag to get the time delta between current line and
 previous line.
@@ -190,6 +188,9 @@ Then, run `tcpdump` with the following flags:
 
 This captures all packets originating from the Honeywell thermostat for example.
 
+[Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
+
+[Filtering CDP LLDP packets with Tcpdump](https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux)
 
 
 Nfsiostat
