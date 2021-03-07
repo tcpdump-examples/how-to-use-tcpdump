@@ -2,7 +2,7 @@
 
 how-to-use-tcpdump
 ===========================
-(`RFC 1191 - Path MTU Discovery <https://tools.ietf.org/html/rfc1191>`_)
+
 
 Tcpdump command is a famous network packet analyzing tool that is used to display TCP\IP & other network packets being transmitted over the network attached to the system on which tcpdump has been installed. Tcpdump uses libpcap library to capture the network packets & is available on almost all Linux/Unix flavors.
 
