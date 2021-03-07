@@ -188,6 +188,7 @@ Then, run `tcpdump` with the following flags:
 
 This captures all packets originating from the Honeywell thermostat for example.
 
+We can also use tcpdump to filter DNS packets and CDP packets.
 [Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
 
 [Filtering CDP LLDP packets with Tcpdump](https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux)
