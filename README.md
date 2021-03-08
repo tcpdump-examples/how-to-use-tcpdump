@@ -507,6 +507,8 @@ Tcpdump is for everyone for hackers and people who have less of TCP/IP understan
 
 ### Capture DNS Request and Response
     
+    [Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
+
     tcpdump -i wlp58s0 -s0 port 53
 
 ### Capture HTTP data packets
@@ -569,6 +571,9 @@ Tcpdump is for everyone for hackers and people who have less of TCP/IP understan
 
 ### Filter on protocol (ICMP) and protocol-specific fields (ICMP type)
 
+[Tcpdump: Filter Packets with Tcp Flags](https://www.howtouselinux.com/post/tcpdump-capture-packets-with-tcp-flags)
+
+
 tcpdump -n icmp and 'icmp[0] != 8 and icmp[0] != 0'
 
 ### Same command can be used with predefined header field offset (icmptype) and ICMP type field values (icmp-echo and icmp-echoreply):
@@ -592,6 +597,7 @@ tcpdump -n icmp and 'icmp[0] != 8 and icmp[0] != 0'
     tcpdump tcp and port 80 and 'tcp[tcpflags] == tcp-syn'
 
 ### Catch TCP SYN/ACK packets (typically, responses from servers):
+
 
     tcpdump -n tcp and 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)'
     tcpdump -n tcp and 'tcp[tcpflags] & tcp-syn == tcp-syn' and 'tcp[tcpflags] & tcp-ack == tcp-ack'
@@ -646,6 +652,9 @@ tcpdump -n icmp and 'icmp[0] != 8 and icmp[0] != 0'
 
 [Learn tcpdump Quick Guide](https://www.howtouselinux.com/post/learn-tcpdump-quick-guide)
 
+[Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
+
+[Filtering CDP LLDP packets with Tcpdump](https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux)
 
 
 #### END!
