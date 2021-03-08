@@ -1,0 +1,349 @@
+<h1 id="how-to-use-tcpdump">how-to-use-tcpdump</h1>
+<p>Tcpdump command is a famous network packet analyzing tool that is used to display TCP&amp; other network packets being transmitted over the network attached to the system on which tcpdump has been installed. Tcpdump uses libpcap library to capture the network packets &amp; is available on almost all Linux/Unix flavors.</p>
+<p><a href="https://www.howtouselinux.com/post/linux-tcpdump-filter-ipv6-ntp-ping-packets">Linux Tcpdump: Filter ipv6 ntp ping packets</a></p>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-capture-dhcp-dhcpv6-packets">Tcpdump: capture DHCP &amp; DHCPv6 packets</a></p>
+<p><a href="https://www.howtouselinux.com/post/20-tcpdump-advanced-examples-on-linux">20 Advanced Tcpdump Examples On Linux</a></p>
+<p><a href="https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples">10 Useful tcpdump command examples</a></p>
+<h1 id="tcpdump">TCPDUMP</h1>
+<h2 id="readme">README</h2>
+<p>Tcpdump is one of the best network analysis-tools ever for information security professionals. Tcpdump is for everyone for hackers and people who have less of TCP/IP understanding.</p>
+<h2 id="options">OPTIONS</h2>
+<h4 id="below-are-some-tcpdump-options-with-useful-examples-that-will-help-you-working-with-the-tool.-theyre-very-easy-to-forget-andor-confuse-with-other-types-of-filters-i.e.-ethereal-so-hopefully-this-article-can-serve-as-a-reference-for-you-as-it-does-me">Below are some tcpdump options (with useful examples) that will help you working with the tool. They’re very easy to forget and/or confuse with other types of filters, i.e. ethereal, so hopefully this article can serve as a reference for you, as it does me:)</h4>
+<ul>
+<li>The first of these is -n, which requests that names are not resolved, resulting in the IPs themselves.</li>
+<li>The second is -X, which displays both hex and ascii content within the packet.</li>
+<li>The final one is -S, which changes the display of sequence numbers to absolute rather than relative.</li>
+</ul>
+<h3 id="show-the-packets-contents-in-both-hex-and-ascii.">Show the packet’s contents in both hex and ascii.</h3>
+<pre><code>tcpdump -X ....         
+  </code></pre>
+<h3 id="same-as--x-but-also-shows-the-ethernet-header.">Same as -X, but also shows the ethernet header.</h3>
+<pre><code>tcpdump -XX</code></pre>
+<h3 id="show-the-list-of-available-interfaces">Show the list of available interfaces</h3>
+<pre><code>tcpdump -D</code></pre>
+<h3 id="line-readable-output-for-viewing-as-you-save-or-sending-to-other-commands">Line-readable output (for viewing as you save, or sending to other commands)</h3>
+<pre><code>tcpdump -l</code></pre>
+<h3 id="be-less-verbose-more-quiet-with-your-output.">Be less verbose (more quiet) with your output.</h3>
+<pre><code>tcpdump -q</code></pre>
+<h3 id="give-human-readable-timestamp-output.">Give human-readable timestamp output.</h3>
+<pre><code>tcpdump -t :</code></pre>
+<h3 id="give-maximally-human-readable-timestamp-output.">Give maximally human-readable timestamp output.</h3>
+<pre><code>tcpdump -tttt : </code></pre>
+<h3 id="listen-on-the-eth0-interface.">Listen on the eth0 interface.</h3>
+<pre><code>tcpdump -i eth0</code></pre>
+<h3 id="verbose-output-more-vs-gives-more-output.">Verbose output (more v’s gives more output).</h3>
+<pre><code>tcpdump -vv </code></pre>
+<h3 id="only-get-x-number-of-packets-and-then-stop.">Only get x number of packets and then stop.</h3>
+<pre><code>tcpdump -c </code></pre>
+<h3 id="define-the-snaplength-size-of-the-capture-in-bytes.-use--s0-to-get-everything-unless-you-are-intentionally-capturing-less.">Define the snaplength (size) of the capture in bytes. Use -s0 to get everything, unless you are intentionally capturing less.</h3>
+<pre><code>tcpdump -s </code></pre>
+<h3 id="print-absolute-sequence-numbers.">Print absolute sequence numbers.</h3>
+<pre><code>tcpdump -S </code></pre>
+<h3 id="get-the-ethernet-header-as-well.">Get the ethernet header as well.</h3>
+<pre><code>tcpdump -e </code></pre>
+<h3 id="decrypt-ipsec-traffic-by-providing-an-encryption-key.">Decrypt IPSEC traffic by providing an encryption key.</h3>
+<pre><code>tcpdump -E</code></pre>
+<h3 id="for-more-options-read-manual">For more options, read manual:</h3>
+<ul>
+<li><p>Find all options <a href="https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples">here</a></p></li>
+<li><p><a href="https://www.howtouselinux.com/post/linux-tcpdump-filter-ipv6-ntp-ping-packets">Linux Tcpdump: Filter ipv6 ntp ping packets</a></p></li>
+<li><p><a href="https://www.howtouselinux.com/post/tcpdump-capture-dhcp-dhcpv6-packets">Tcpdump: capture DHCP &amp; DHCPv6 packets</a></p></li>
+<li><p><a href="https://www.howtouselinux.com/post/20-tcpdump-advanced-examples-on-linux">20 Advanced Tcpdump Examples On Linux</a></p></li>
+<li><p><a href="https://www.howtouselinux.com/post/10-useful-tcpdump-command-examples">10 Useful tcpdump command examples</a></p></li>
+</ul>
+<h1 id="basic-usage">BASIC USAGE</h1>
+<h3 id="display-available-interfaces">Display Available Interfaces</h3>
+<pre><code>tcpdump -D
+tcpdump --list-interfaces</code></pre>
+<h3 id="lets-start-with-a-basic-command-that-will-get-us-https-traffic">Let’s start with a basic command that will get us HTTPS traffic:</h3>
+<pre><code>tcpdump -nnSX port 443</code></pre>
+<h3 id="find-traffic-by-ip">Find Traffic by IP</h3>
+<pre><code>tcpdump host 1.1.1.1</code></pre>
+<h3 id="filtering-by-source-andor-destination">Filtering by Source and/or Destination</h3>
+<pre><code>tcpdump src 1.1.1.1 
+tcpdump dst 1.0.0.1</code></pre>
+<h3 id="finding-packets-by-network">Finding Packets by Network</h3>
+<pre><code>tcpdump net 1.2.3.0/24</code></pre>
+<h4 id="low-output">Low Output:</h4>
+<pre><code>tcpdump -nnvvS</code></pre>
+<h4 id="medium-output">Medium Output:</h4>
+<pre><code>tcpdump -nnvvXS</code></pre>
+<h4 id="heavy-output">Heavy Output:</h4>
+<pre><code>tcpdump -nnvvXSs 1514</code></pre>
+<h1 id="getting-creative">Getting Creative</h1>
+<ul>
+<li>Expressions are very nice, but the real magic of tcpdump comes from the ability to combine them in creative ways in order to isolate exactly what you’re looking for.</li>
+</ul>
+<h2 id="there-are-three-ways-to-do-combination">There are three ways to do combination:</h2>
+<h3 id="and">AND</h3>
+<pre><code>and or &amp;&amp;</code></pre>
+<h3 id="or">OR</h3>
+<pre><code>or or ||</code></pre>
+<h3 id="except">EXCEPT</h3>
+<pre><code>not or !</code></pre>
+<h1 id="usage-example">Usage Example:</h1>
+<h3 id="traffic-thats-from-192.168.1.1-and-destined-for-ports-3389-or-22">Traffic that’s from 192.168.1.1 AND destined for ports 3389 or 22</h3>
+<pre><code>tcpdump &#39;src 192.168.1.1 and (dst port 3389 or 22)&#39;</code></pre>
+<h1 id="advanced">Advanced</h1>
+<h3 id="show-me-all-urg-packets">Show me all URG packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 32 != 0&#39;</code></pre>
+<h3 id="show-me-all-ack-packets">Show me all ACK packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 16 != 0&#39;</code></pre>
+<h3 id="show-me-all-psh-packets">Show me all PSH packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 8 != 0&#39;</code></pre>
+<h3 id="show-me-all-rst-packets">Show me all RST packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 4 != 0&#39;</code></pre>
+<h3 id="show-me-all-syn-packets">Show me all SYN packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 2 != 0&#39;</code></pre>
+<h3 id="show-me-all-fin-packets">Show me all FIN packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 1 != 0&#39;</code></pre>
+<h3 id="show-me-all-syn-ack-packets">Show me all SYN-ACK packets:</h3>
+<pre><code>tcpdump &#39;tcp[13] = 18&#39;</code></pre>
+<h3 id="show-all-traffic-with-both-syn-and-rst-flags-set-that-should-never-happen">Show all traffic with both SYN and RST flags set: (that should never happen)</h3>
+<pre><code>tcpdump &#39;tcp[13] = 6&#39;</code></pre>
+<h3 id="show-all-traffic-with-the-evil-bit-set">Show all traffic with the “evil bit” set:</h3>
+<pre><code>tcpdump &#39;ip[6] &amp; 128 != 0&#39;</code></pre>
+<h3 id="display-all-ipv6-traffic">Display all IPv6 Traffic:</h3>
+<pre><code>tcpdump ip6</code></pre>
+<h3 id="print-captured-packets-in-ascii">Print Captured Packets in ASCII</h3>
+<pre><code>tcpdump -A -i eth0</code></pre>
+<h3 id="display-captured-packets-in-hex-and-ascii">Display Captured Packets in HEX and ASCII</h3>
+<pre><code>tcpdump -XX -i eth0</code></pre>
+<h3 id="capture-and-save-packets-in-a-file">Capture and Save Packets in a File</h3>
+<pre><code>tcpdump -w 0001.pcap -i eth0</code></pre>
+<h3 id="read-captured-packets-file">Read Captured Packets File</h3>
+<pre><code>tcpdump -r 0001.pcap</code></pre>
+<h3 id="capture-ip-address-packets">Capture IP address Packets</h3>
+<pre><code>tcpdump -n -i eth0</code></pre>
+<h3 id="capture-only-tcp-packets.">Capture only TCP Packets.</h3>
+<pre><code>tcpdump -i eth0 tcp</code></pre>
+<h3 id="capture-packet-from-specific-port">Capture Packet from Specific Port</h3>
+<pre><code>tcpdump -i eth0 port 22</code></pre>
+<h3 id="capture-packets-from-source-ip">Capture Packets from source IP</h3>
+<pre><code>tcpdump -i eth0 src 192.168.0.2</code></pre>
+<h3 id="capture-packets-from-destination-ip">Capture Packets from destination IP</h3>
+<pre><code>tcpdump -i eth0 dst 50.116.66.139</code></pre>
+<h3 id="capture-any-packed-coming-from-x.x.x.x">Capture any packed coming from x.x.x.x</h3>
+<pre><code>tcpdump -n src host x.x.x.x</code></pre>
+<h3 id="capture-any-packet-coming-from-or-going-to-x.x.x.x">Capture any packet coming from or going to x.x.x.x</h3>
+<pre><code>tcpdump -n host x.x.x.x</code></pre>
+<h3 id="capture-any-packet-going-to-x.x.x.x">Capture any packet going to x.x.x.x</h3>
+<pre><code>tcpdump -n dst host x.x.x.x</code></pre>
+<h3 id="capture-any-packed-coming-from-x.x.x.x-1">Capture any packed coming from x.x.x.x</h3>
+<pre><code>tcpdump -n src host x.x.x.x</code></pre>
+<h3 id="capture-any-packet-going-to-network-x.x.x.024">Capture any packet going to network x.x.x.0/24</h3>
+<pre><code>tcpdump -n dst net x.x.x.0/24</code></pre>
+<h3 id="capture-any-packet-coming-from-network-x.x.x.024">Capture any packet coming from network x.x.x.0/24</h3>
+<pre><code>tcpdump -n src net x.x.x.0/24</code></pre>
+<h3 id="capture-any-packet-with-destination-port-x">Capture any packet with destination port x</h3>
+<pre><code>tcpdump -n dst port x</code></pre>
+<h3 id="capture-any-packet-coming-from-port-x">Capture any packet coming from port x</h3>
+<pre><code>tcpdump -n src port x</code></pre>
+<h3 id="capture-any-packets-from-or-to-port-range-x-to-y">Capture any packets from or to port range x to y</h3>
+<pre><code>tcpdump -n dst(or src) portrange x-y</code></pre>
+<h3 id="capture-any-tcp-or-udp-port-range-x-to-y">Capture any tcp or udp port range x to y</h3>
+<pre><code>tcpdump -n tcp(or udp) dst(or src) portrange x-y</code></pre>
+<h3 id="capture-any-packets-with-dst-ip-x.x.x.x-and-port-y">Capture any packets with dst ip x.x.x.x and port y</h3>
+<pre><code>tcpdump -n &quot;dst host x.x.x.x and dst port y&quot;</code></pre>
+<h3 id="capture-any-packets-with-dst-ip-x.x.x.x-and-dst-ports-x-z">Capture any packets with dst ip x.x.x.x and dst ports x, z</h3>
+<pre><code>tcpdump -n &quot;dst host x.x.x.x and (dst port x or dst port z)&quot;</code></pre>
+<h3 id="capture-icmp-arp">Capture ICMP , ARP</h3>
+<pre><code>tcpdump -v icmp(or arp)</code></pre>
+<h3 id="capture-packets-on-interface-eth0-and-dump-to-cap.txt-file">Capture packets on interface eth0 and dump to cap.txt file</h3>
+<pre><code>tcpdump -i eth0 -w cap.txt</code></pre>
+<h3 id="get-packet-contents-with-hex-output">Get Packet Contents with Hex Output</h3>
+<pre><code>tcpdump -c 1 -X icmp</code></pre>
+<h3 id="show-traffic-related-to-a-specific-port">Show Traffic Related to a Specific Port</h3>
+<pre><code>tcpdump port 3389 
+tcpdump src port 1025</code></pre>
+<h3 id="show-traffic-of-one-protocol">Show Traffic of One Protocol</h3>
+<pre><code>tcpdump icmp</code></pre>
+<h3 id="find-traffic-by-ip-1">Find Traffic by IP</h3>
+<pre><code>tcpdump host 1.1.1.1</code></pre>
+<h3 id="filtering-by-source-andor-destination-1">Filtering by Source and/or Destination</h3>
+<pre><code>tcpdump src 1.1.1.1 
+tcpdump dst 1.0.0.1</code></pre>
+<h3 id="finding-packets-by-network-1">Finding Packets by Network</h3>
+<pre><code>tcpdump net 1.2.3.0/24</code></pre>
+<h3 id="get-packet-contents-with-hex-output-1">Get Packet Contents with Hex Output</h3>
+<pre><code>tcpdump -c 1 -X icmp</code></pre>
+<h3 id="show-traffic-related-to-a-specific-port-1">Show Traffic Related to a Specific Port</h3>
+<pre><code>tcpdump port 3389 
+tcpdump src port 1025</code></pre>
+<h3 id="show-traffic-of-one-protocol-1">Show Traffic of One Protocol</h3>
+<pre><code>tcpdump icmp</code></pre>
+<h3 id="show-only-ip6-traffic">Show only IP6 Traffic</h3>
+<pre><code>tcpdump ip6</code></pre>
+<h3 id="find-traffic-using-port-ranges">Find Traffic Using Port Ranges</h3>
+<pre><code>tcpdump portrange 21-23</code></pre>
+<h3 id="find-traffic-based-on-packet-size">Find Traffic Based on Packet Size</h3>
+<pre><code> tcpdump less 32 
+ tcpdump greater 64 
+ tcpdump &lt;= 128
+ tcpdump =&gt; 128</code></pre>
+<h3 id="reading-writing-captures-to-a-file-pcap">Reading / Writing Captures to a File (pcap)</h3>
+<pre><code>tcpdump port 80 -w capture_file
+tcpdump -r capture_file</code></pre>
+<h1 id="its-all-about-the-combinations">It’s All About the Combinations</h1>
+<h3 id="raw-output-view">Raw Output View</h3>
+<pre><code>tcpdump -ttnnvvS</code></pre>
+<h2 id="here-are-some-examples-of-combined-commands.">Here are some examples of combined commands.</h2>
+<h3 id="from-specific-ip-and-destined-for-a-specific-port">From specific IP and destined for a specific Port</h3>
+<pre><code>tcpdump -nnvvS src 10.5.2.3 and dst port 3389</code></pre>
+<h3 id="from-one-network-to-another">From One Network to Another</h3>
+<pre><code>tcpdump -nvX src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16</code></pre>
+<h3 id="non-icmp-traffic-going-to-a-specific-ip">Non ICMP Traffic Going to a Specific IP</h3>
+<pre><code>tcpdump dst 192.168.0.2 and src net and not icmp</code></pre>
+<h3 id="traffic-from-a-host-that-isnt-on-a-specific-port">Traffic From a Host That Isn’t on a Specific Port</h3>
+<pre><code>tcpdump -vv src mars and not dst port 22</code></pre>
+<h3 id="isolate-tcp-rst-flags.">Isolate TCP RST flags.</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 4!=0&#39;
+tcpdump &#39;tcp[tcpflags] == tcp-rst&#39;</code></pre>
+<h3 id="isolate-tcp-syn-flags.">Isolate TCP SYN flags.</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 2!=0&#39;
+tcpdump &#39;tcp[tcpflags] == tcp-syn&#39;</code></pre>
+<h3 id="isolate-packets-that-have-both-the-syn-and-ack-flags-set.">Isolate packets that have both the SYN and ACK flags set.</h3>
+<pre><code>tcpdump &#39;tcp[13]=18&#39;</code></pre>
+<h3 id="isolate-tcp-urg-flags.">Isolate TCP URG flags.</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 32!=0&#39;
+tcpdump &#39;tcp[tcpflags] == tcp-urg&#39;</code></pre>
+<h3 id="isolate-tcp-ack-flags.">Isolate TCP ACK flags.</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 16!=0&#39;
+tcpdump &#39;tcp[tcpflags] == tcp-ack&#39;</code></pre>
+<h3 id="isolate-tcp-psh-flags.">Isolate TCP PSH flags.</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 8!=0&#39;
+tcpdump &#39;tcp[tcpflags] == tcp-psh&#39;</code></pre>
+<h3 id="isolate-tcp-fin-flags.">Isolate TCP FIN flags.</h3>
+<pre><code>tcpdump &#39;tcp[13] &amp; 1!=0&#39;
+tcpdump &#39;tcp[tcpflags] == tcp-fin&#39;</code></pre>
+<h1 id="commands-that-i-using-almost-daily">Commands that I using almost daily</h1>
+<h3 id="both-syn-and-rst-set">Both SYN and RST Set</h3>
+<pre><code>tcpdump &#39;tcp[13] = 6&#39;</code></pre>
+<h3 id="find-http-user-agents">Find HTTP User Agents</h3>
+<pre><code>tcpdump -vvAls0 | grep &#39;User-Agent:&#39;
+tcpdump -nn -A -s1500 -l | grep &quot;User-Agent:&quot;</code></pre>
+<h3 id="by-using-egrep-and-multiple-matches-we-can-get-the-user-agent-and-the-host-or-any-other-header-from-the-request.">By using egrep and multiple matches we can get the User Agent and the Host (or any other header) from the request.</h3>
+<pre><code>tcpdump -nn -A -s1500 -l | egrep -i &#39;User-Agent:|Host:&#39;</code></pre>
+<h3 id="capture-only-http-get-and-post-packets-only-packets-that-match-get.">Capture only HTTP GET and POST packets only packets that match GET.</h3>
+<pre><code>tcpdump -s 0 -A -vv &#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x47455420&#39;
+tcpdump -s 0 -A -vv &#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x504f5354&#39;</code></pre>
+<h3 id="extract-http-request-urls">Extract HTTP Request URL's</h3>
+<pre><code>tcpdump -s 0 -v -n -l | egrep -i &quot;POST /|GET /|Host:&quot;</code></pre>
+<h3 id="extract-http-passwords-in-post-requests">Extract HTTP Passwords in POST Requests</h3>
+<pre><code>tcpdump -s 0 -A -n -l | egrep -i &quot;POST /|pwd=|passwd=|password=|Host:&quot;</code></pre>
+<h3 id="capture-cookies-from-server-and-from-client">Capture Cookies from Server and from Client</h3>
+<pre><code>tcpdump -nn -A -s0 -l | egrep -i &#39;Set-Cookie|Host:|Cookie:&#39;</code></pre>
+<h3 id="capture-all-icmp-packets">Capture all ICMP packets</h3>
+<pre><code>tcpdump -n icmp</code></pre>
+<h3 id="show-icmp-packets-that-are-not-echoreply-standard-ping">Show ICMP Packets that are not ECHO/REPLY (standard ping)</h3>
+<pre><code>tcpdump &#39;icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply&#39;</code></pre>
+<h3 id="capture-smtp-pop3-email">Capture SMTP / POP3 Email</h3>
+<pre><code>tcpdump -nn -l port 25 | grep -i &#39;MAIL FROM\|RCPT TO&#39;</code></pre>
+<h3 id="troubleshooting-ntp-query-and-response">Troubleshooting NTP Query and Response</h3>
+<pre><code>tcpdump dst port 123</code></pre>
+<h3 id="capture-ftp-credentials-and-commands">Capture FTP Credentials and Commands</h3>
+<pre><code>tcpdump -nn -v port ftp or ftp-data</code></pre>
+<h3 id="rotate-capture-files">Rotate Capture Files</h3>
+<pre><code>tcpdump  -w /tmp/capture-%H.pcap -G 3600 -C 200</code></pre>
+<h3 id="capture-ipv6-traffic">Capture IPv6 Traffic</h3>
+<pre><code>tcpdump -nn ip6 proto 6</code></pre>
+<h3 id="ipv6-with-udp-and-reading-from-a-previously-saved-capture-file.">IPv6 with UDP and reading from a previously saved capture file.</h3>
+<pre><code>tcpdump -nr ipv6-test.pcap ip6 proto 17</code></pre>
+<h3 id="detect-port-scan-in-network-traffic">Detect Port Scan in Network Traffic</h3>
+<pre><code>tcpdump -nn</code></pre>
+<h1 id="usage-example-1">USAGE EXAMPLE</h1>
+<h3 id="example-filter-showing-nmap-nse-script-testing">Example Filter Showing Nmap NSE Script Testing</h3>
+<ul>
+<li><p>On Target:</p>
+<p>nmap -p 80 --script=http-enum.nse targetip</p></li>
+<li><p>On Server:</p>
+<p>tcpdump -nn port 80 | grep &quot;GET /&quot;</p>
+<pre><code>   GET /w3perl/ HTTP/1.1
+   GET /w-agora/ HTTP/1.1
+   GET /way-board/ HTTP/1.1
+   GET /web800fo/ HTTP/1.1
+   GET /webaccess/ HTTP/1.1
+   GET /webadmin/ HTTP/1.1
+   GET /webAdmin/ HTTP/1.1</code></pre></li>
+</ul>
+<h3 id="capture-start-and-end-packets-of-every-non-local-host">Capture Start and End Packets of every non-local host</h3>
+<pre><code>tcpdump &#39;tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet&#39;</code></pre>
+<h3 id="capture-dns-request-and-response">Capture DNS Request and Response</h3>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-filter-dns-packets">Filtering DNS with Tcpdump</a></p>
+<pre><code>tcpdump -i wlp58s0 -s0 port 53</code></pre>
+<h3 id="capture-http-data-packets">Capture HTTP data packets</h3>
+<pre><code>tcpdump &#39;tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)&#39;</code></pre>
+<h3 id="top-hosts-by-packets">Top Hosts by Packets</h3>
+<pre><code>tcpdump -nnn -t -c 200 | cut -f 1,2,3,4 -d &#39;.&#39; | sort | uniq -c | sort -nr | head -n 20</code></pre>
+<h3 id="capture-all-the-plaintext-passwords">Capture all the plaintext passwords</h3>
+<pre><code>tcpdump port http or port ftp or port smtp or port imap or port pop3 or port telnet -l -A | egrep -i -B5 &#39;pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user &#39;
+
+tcpdump port http or port ftp or port smtp or port imap or port pop3 or port telnet -lA | egrep -i -B5 &#39;pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd= |password=|pass:|user:|username:|password:|login:|pass |user &#39;</code></pre>
+<h3 id="dhcp-example">DHCP Example</h3>
+<pre><code>tcpdump -v -n port 67 or 68</code></pre>
+<h3 id="cleartext-get-requests">Cleartext GET Requests</h3>
+<pre><code>tcpdump -vvAls0 | grep &#39;GET&#39;</code></pre>
+<h3 id="find-http-host-headers">Find HTTP Host Headers</h3>
+<pre><code>tcpdump -vvAls0 | grep &#39;Host:&#39;</code></pre>
+<h3 id="find-http-cookies">Find HTTP Cookies</h3>
+<pre><code>tcpdump -vvAls0 | grep &#39;Set-Cookie|Host:|Cookie:&#39;</code></pre>
+<h3 id="find-ssh-connections">Find SSH Connections</h3>
+<pre><code>tcpdump &#39;tcp[(tcp[12]&gt;&gt;2):4] = 0x5353482D&#39;</code></pre>
+<h3 id="find-dns-traffic">Find DNS Traffic</h3>
+<pre><code>tcpdump -vvAs0 port 53</code></pre>
+<h3 id="find-ftp-traffic">Find FTP Traffic</h3>
+<pre><code>tcpdump -vvAs0 port ftp or ftp-data</code></pre>
+<h3 id="find-ntp-traffic">Find NTP Traffic</h3>
+<pre><code>tcpdump -vvAs0 port 123</code></pre>
+<h3 id="capture-smtp-pop3-email-1">Capture SMTP / POP3 Email</h3>
+<pre><code>tcpdump -nn -l port 25 | grep -i &#39;MAIL FROM\|RCPT TO&#39;</code></pre>
+<h3 id="line-buffered-mode">Line Buffered Mode</h3>
+<pre><code>tcpdump -i eth0 -s0 -l port 80 | grep &#39;Server:&#39;</code></pre>
+<h3 id="find-traffic-with-evil-bit">Find traffic with evil bit</h3>
+<pre><code>tcpdump &#39;ip[6] &amp; 128 != 0&#39;</code></pre>
+<h3 id="filter-on-protocol-icmp-and-protocol-specific-fields-icmp-type">Filter on protocol (ICMP) and protocol-specific fields (ICMP type)</h3>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-capture-packets-with-tcp-flags">Tcpdump: Filter Packets with Tcp Flags</a></p>
+<p>tcpdump -n icmp and 'icmp[0] != 8 and icmp[0] != 0'</p>
+<h3 id="same-command-can-be-used-with-predefined-header-field-offset-icmptype-and-icmp-type-field-values-icmp-echo-and-icmp-echoreply">Same command can be used with predefined header field offset (icmptype) and ICMP type field values (icmp-echo and icmp-echoreply):</h3>
+<pre><code>tcpdump -n icmp and icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply</code></pre>
+<h3 id="filter-on-tos-field">Filter on TOS field</h3>
+<pre><code>tcpdump -v -n ip and ip[1]!=0</code></pre>
+<h3 id="filter-on-ttl-field">Filter on TTL field</h3>
+<pre><code>tcpdump -v ip and &#39;ip[8]&lt;2&#39;</code></pre>
+<h3 id="filter-on-tcp-flags-synack">Filter on TCP flags (SYN/ACK)</h3>
+<pre><code>tcpdump -n tcp and port 80 and &#39;tcp[tcpflags] &amp; tcp-syn == tcp-syn&#39;</code></pre>
+<h3 id="in-the-example-above-all-packets-with-tcp-syn-flag-set-are-captured.-other-flags-ack-for-example-might-be-set-also.-packets-which-have-only-tcp-syn-flags-set-can-be-captured">In the example above, all packets with TCP SYN flag set are captured. Other flags (ACK, for example) might be set also. Packets which have only TCP SYN flags set, can be captured</h3>
+<pre><code>tcpdump tcp and port 80 and &#39;tcp[tcpflags] == tcp-syn&#39;</code></pre>
+<h3 id="catch-tcp-synack-packets-typically-responses-from-servers">Catch TCP SYN/ACK packets (typically, responses from servers):</h3>
+<pre><code>tcpdump -n tcp and &#39;tcp[tcpflags] &amp; (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)&#39;
+tcpdump -n tcp and &#39;tcp[tcpflags] &amp; tcp-syn == tcp-syn&#39; and &#39;tcp[tcpflags] &amp; tcp-ack == tcp-ack&#39;</code></pre>
+<h3 id="catch-arp-packets">Catch ARP packets</h3>
+<pre><code>tcpdump -vv -e -nn ether proto 0x0806</code></pre>
+<h3 id="filter-on-ip-packet-length">Filter on IP packet length</h3>
+<pre><code>tcpdump -l icmp and &#39;(ip[2:2]&gt;50)&#39; -w - |tcpdump -r - -v ip and &#39;(ip[2:2]&lt;60)&#39;</code></pre>
+<h3 id="remark-due-to-some-bug-in-tcpdump-the-following-command-doesnt-catch-packets-as-expected">Remark: due to some bug in tcpdump, the following command doesn't catch packets as expected:</h3>
+<pre><code>tcpdump -v -n icmp and &#39;(ip[2:2]&gt;50)&#39; and &#39;(ip[2:2]&lt;60)&#39;</code></pre>
+<h3 id="filter-on-encapsulated-content-icmp-within-pppoe">Filter on encapsulated content (ICMP within PPPoE)</h3>
+<pre><code>tcpdump -v -n icmp</code></pre>
+<h3 id="queiter">Queiter</h3>
+<pre><code>tcpdump -q -i eth0
+tcpdump -t -i eth0
+tcpdump -A -n -q -i eth0 &#39;port 80&#39;
+tcpdump -A -n -q -t -i eth0 &#39;port 80&#39;</code></pre>
+<h3 id="print-only-useful-packets-from-the-http-traffic">Print only useful packets from the HTTP traffic</h3>
+<pre><code>tcpdump -A -s 0 -q -t -i eth0 &#39;port 80 and ( ((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12:2]&amp;0xf0)&gt;&gt;2)) != 0)&#39;</code></pre>
+<h3 id="dump-sip-traffic">Dump SIP Traffic</h3>
+<pre><code>tcpdump -nq -s 0 -A -vvv port 5060 and host 1.2.3.4</code></pre>
+<h3 id="checking-packet-content">Checking packet content</h3>
+<pre><code>tcpdump -i any -c10 -nn -A port 80</code></pre>
+<h3 id="checking-packet-content-1">Checking packet content</h3>
+<pre><code>sudo tcpdump -i any -c10 -nn -A port 80</code></pre>
+<h1 id="references-awesome-wikis">References &amp; Awesome wikis</h1>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-filter-icmpv6-packets">Capture ICMP Packets With Tcpdump</a></p>
+<p><a href="https://www.howtouselinux.com/post/debugging-ssh-packets-with-tcpdump">Debugging SSH Packets with Tcpdump</a></p>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-filter-dns-packets">Using Tcpdump to Filter DNS Packets</a></p>
+<p><a href="https://www.howtouselinux.com/post/learn-tcpdump-quick-guide">Learn tcpdump Quick Guide</a></p>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-filter-dns-packets">Filtering DNS with Tcpdump</a></p>
+<p><a href="https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux">Filtering CDP LLDP packets with Tcpdump</a></p>
+<p><a href="https://www.howtouselinux.com/post/tcpdump-cheat-sheet">Tcpdump Cheat Sheet (Basic Advanced Examples)</a></p>
+<h4 id="end">END!</h4>
