@@ -657,5 +657,6 @@ tcpdump -n icmp and 'icmp[0] != 8 and icmp[0] != 0'
 
 [Filtering CDP LLDP packets with Tcpdump](https://www.howtouselinux.com/post/capture-cdp-or-lldp-packets-with-tcpdump-on-linux)
 
+[Tcpdump Cheat Sheet (Basic Advanced Examples)](https://www.howtouselinux.com/post/tcpdump-cheat-sheet)
 
 #### END!
