@@ -507,7 +507,8 @@ Tcpdump is for everyone for hackers and people who have less of TCP/IP understan
 
 ### Capture DNS Request and Response
     
-    [Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
+  [Filtering DNS with Tcpdump](https://www.howtouselinux.com/post/tcpdump-filter-dns-packets)
+    
 
     tcpdump -i wlp58s0 -s0 port 53
 
